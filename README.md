@@ -1,5 +1,7 @@
 # Assembly Language: A dive into low level programming
 
+_I'm following the "[Intro to x86 Assembly Language]([https://youtu.be/wLXIWKUWpSs?si=4l3jTiwgLzkjezWO])" video series from Davy Wybiral, along with course content from SPO600 course, taught by [Chris Tyler](https://github.com/ctyler)at my college. Unless specifically mentioned, assume content is from Wybiral's videos._ <br/>
+
 First step: install NASM. NASM(Netwide Assembler) is an assembler and disassembler for the Intel x86_64 architecture.<br/>
 
 ```Ezoic
@@ -151,4 +153,5 @@ label:
 - "\*" - Never use the return code to return useful info, always return 0 if no issues. Tutorial is using this just to show output.<br/>
 
 ### Fun fact:
-*Max number of iterations you can do with this code is 7, for te result of 128. If you do 8 iterations, you get 0, because I guess 256 overflows. A way to show that it indeed overflows is to add a `dec ebx` before you return, and it actually returns 255 when you `echo $?`. Cool stuff.* <br/>
+
+_Max number of iterations you can do with this code is 7, for te result of 128. If you do 8 iterations, you get 0, because I guess 256 overflows. A way to show that it indeed overflows is to add a `dec ebx` before you return, and it actually returns 255 when you `echo $?`. Cool stuff._ <br/>
