@@ -1,6 +1,6 @@
 # Assembly Language: A dive into low level programming
 
-First step: install NASM. NASM(Netwide Assembler) is an assembler and disassembler for the Intel x86_64 architecture.
+First step: install NASM. NASM(Netwide Assembler) is an assembler and disassembler for the Intel x86_64 architecture.<br/>
 
 ```Ezoic
 
@@ -9,9 +9,9 @@ $ sudo dnf install nasm    #For RHEL, Fedora, AlmaLinux
 $ sudo pacman -S nasm      #For Arch, Manjaro, EndeavourOS
 ```
 
-Example 1:
+##Example 1:
 
-In my case I used the Manjaro command, and after fixing some pacman -Syu issues, I was good to go.
+In my case I used the Manjaro command, and after fixing some pacman -Syu issues, I was good to go.<br/>
 
 ```Assembly
 global _start          ;<-- entry point
@@ -22,7 +22,7 @@ _start:
                        ;    the syscall that it makes it dependent on the EAX register and what it stores
 ```
 
-##Assemble, Link and Execute
+##Assemble, Link and Execute<br/>
 
 ASSEMBLE 32 bit ELF object file. <br />
 `nasm -f elf32 ex1.asm -o ex1.o` <br />
@@ -44,7 +44,7 @@ mul ebx       ; EAX *= EBX
 div edx       ; EAX /= EDX
 ```
 
-Example 2
+##Example 2<br/>
 
 ```assembly
 global _start
@@ -64,4 +64,4 @@ _start:
     mov ebx,0    ; exit status is 0
     int 0x80     ; perform syscall
 ```
-After assembling, linking and executing, we should see the ol' familiar "Hello World" on our terminal.
+After assembling, linking and executing, we should see the ol' familiar "Hello World" on our terminal.<br/>
