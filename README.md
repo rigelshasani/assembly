@@ -9,7 +9,7 @@ $ sudo dnf install nasm    #For RHEL, Fedora, AlmaLinux
 $ sudo pacman -S nasm      #For Arch, Manjaro, EndeavourOS
 ```
 
-##Example 1:
+## Example 1:
 
 In my case I used the Manjaro command, and after fixing some pacman -Syu issues, I was good to go.<br/>
 
@@ -22,7 +22,7 @@ _start:
                        ;    the syscall that it makes it dependent on the EAX register and what it stores
 ```
 
-##Assemble, Link and Execute<br/>
+## Assemble, Link and Execute<br/>
 
 ASSEMBLE 32 bit ELF object file. <br />
 `nasm -f elf32 ex1.asm -o ex1.o` <br />
@@ -44,7 +44,7 @@ mul ebx       ; EAX *= EBX
 div edx       ; EAX /= EDX
 ```
 
-##Example 2<br/>
+## Example 2<br/>
 
 ```assembly
 global _start
