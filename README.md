@@ -25,13 +25,21 @@ _start:
 ## Assemble, Link and Execute<br/>
 
 ASSEMBLE 32 bit ELF object file. <br />
-`nasm -f elf32 ex1.asm -o ex1.o` <br />
+```
+nasm -f elf32 ex1.asm -o ex1.o
+```
 LINK executable from OBJ file. <br />
-`ld -m elf_i386 ex1.o ex1` <br />
+```
+ld -m elf_i386 ex1.o ex1
+```
 EXECUTE it <br />
-`./ex1` <br />
+```
+./ex1
+```
 Check for return <br />
-`echo $?` should return 42 <br />
+```
+echo $?
+```
 
 Possible operations in Assembly. Keep in mind that multiplication and division are only performed in the EAX.<br/>
 
