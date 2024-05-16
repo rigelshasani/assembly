@@ -25,18 +25,25 @@ _start:
 ## Assemble, Link and Execute<br/>
 
 ASSEMBLE 32 bit ELF object file. <br />
+
 ```
 nasm -f elf32 ex1.asm -o ex1.o
 ```
+
 LINK executable from OBJ file. <br />
+
 ```
 ld -m elf_i386 ex1.o ex1
 ```
+
 EXECUTE it <br />
+
 ```
 ./ex1
 ```
+
 Check for return <br />
+
 ```
 echo $?
 ```
@@ -72,4 +79,8 @@ _start:
     mov ebx,0    ; exit status is 0
     int 0x80     ; perform syscall
 ```
+
 After assembling, linking and executing, we should see the ol' familiar "Hello World" on our terminal.<br/>
+
+[//]: # "CTRL+SHIFT+V to go to preview mode"
+[//]: # "CTRL+K V to view side by side"
