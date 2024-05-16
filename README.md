@@ -22,11 +22,11 @@ _start:
                        ;    the syscall that it makes it dependent on the EAX register and what it stores
 ```
 
-Build 32 bit ELF object file.
-`nasm -f elf32 ex1.asm -o ex1.o`
-Build executable from OBJ file.
-`ld -m elf_i386 ex1.o ex1`
-Execute it
-`./ex1`
-Check for return
-`echo $?` should return 42
+Build 32 bit ELF object file.      <br />
+`nasm -f elf32 ex1.asm -o ex1.o`   <br />
+Build executable from OBJ file.    <br />
+`ld -m elf_i386 ex1.o ex1`         <br />
+Execute it                         <br />
+`./ex1`                            <br />
+Check for return                   <br />
+`echo $?` should return 42         <br />
