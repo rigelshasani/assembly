@@ -84,3 +84,49 @@ After assembling, linking and executing, we should see the ol' familiar "Hello W
 
 [//]: # "CTRL+SHIFT+V to go to preview mode"
 [//]: # "CTRL+K V to view side by side"
+
+## Example 3
+
+```assembly
+global _start
+section .text
+_start:
+    mov ebx, 42  ; exit status is 42
+    mov eax, 1   ; syscall for exit
+    jmp skip     ; jump to "skip" label*
+    mov ebx, 13  ; exit status is 13
+
+skip:
+    int 0x80
+```
+
+- "\*" The resulting operation here is that the instruction pointer is moved to the location of this "skip" label, so when this program executes, the line `mov ebx, 13` is skipped, because `int 0x80` interrupts the programs and causes it to exit.
+
+## Conditionals in Assembly
+
+```Assembly
+je  A, B   ; Jump if Equal
+jne A, B   ; Jump if Not Equal
+jg  A, B   ; Jump if Greater
+jge A, B   ; Jump if Greater than or Equal To
+jl  A, B   ; Jump if Less Than
+jle A, B   ; Jump if Less Than or Equal To
+```
+
+## Example 3: Part 2
+
+```Assembly
+global _start
+section .text
+_start:
+    mov ecx, 99  ; set ecx to 99
+    mov ebx, 42  ; exit status is 42
+    mov eax, 1   ; sys_exit syscall
+    cmp ecx, 100 ; compares ecx to 100
+    jl skip      ; jump if less than
+    mov ebx, 13  ; exit statu is 13
+
+skip:
+    int 0x80
+```
+
