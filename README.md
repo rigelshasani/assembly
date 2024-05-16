@@ -154,4 +154,4 @@ label:
 
 ### Fun fact:
 
-_Max number of iterations you can do with this code is 7, for te result of 128. If you do 8 iterations, you get 0, because I guess 256 overflows. A way to show that it indeed overflows is to add a `dec ebx` before you return, and it actually returns 255 when you `echo $?`. Cool stuff._ <br/>
+_Max number of iterations you can do with this code is 7, for the result of 128. If you do 8 iterations, you get 0, because I guess 256 overflows. A way to show that it indeed overflows is to add a `dec ebx` before you return, and it actually returns 255 when you `echo $?`. Cool stuff._ <br/>
