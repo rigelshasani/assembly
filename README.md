@@ -1,6 +1,6 @@
 # Assembly Language: A dive into low level programming
 
-_I'm following the "[Intro to x86 Assembly Language]([https://youtu.be/wLXIWKUWpSs?si=4l3jTiwgLzkjezWO])" video series from Davy Wybiral, along with course content from SPO600 course, taught by [Chris Tyler](https://github.com/ctyler)at my college. Unless specifically mentioned, assume content is from Wybiral's videos._ <br/>
+_I'm following the "[Intro to x86 Assembly Language]([https://youtu.be/wLXIWKUWpSs?si=4l3jTiwgLzkjezWO])" video series from Davy Wybiral, along with course content from SPO600 course, taught by [Chris Tyler](https://github.com/ctyler) at my college. Unless specifically mentioned, assume content is from Wybiral's videos._ <br/>
 
 First step: install NASM. NASM(Netwide Assembler) is an assembler and disassembler for the Intel x86_64 architecture.<br/>
 
