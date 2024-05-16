@@ -130,3 +130,25 @@ skip:
     int 0x80
 ```
 
+## Example 4
+
+```Assembly
+global _start
+
+section .text
+_start:
+    mov ebx, 1    ; start ebx at 1*
+    mov ecx, 4    ; number of iterations
+label:
+    add ebx,ebx   ; ebx += ebx
+    dec ecx       ; ecx -= 1
+    cmp ecx, 0    ; compare to 0
+    jg label      ; jump if greater to label
+    mov eax, 1    ; sys_exit syscall
+    int 0x80      ;
+```
+
+- "\*" - Never use the return code to return useful info, always return 0 if no issues. Tutorial is using this just to show output.<br/>
+
+### Fun fact:
+*Max number of iterations you can do with this code is 7, for te result of 128. If you do 8 iterations, you get 0, because I guess 256 overflows. A way to show that it indeed overflows is to add a `dec ebx` before you return, and it actually returns 255 when you `echo $?`. Cool stuff.* <br/>
