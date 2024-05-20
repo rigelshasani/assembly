@@ -215,7 +215,7 @@ mov eax,dword [esp] ; moves 4 bytes of the value of the address esp to eax
 add esp, 4 ; removes 256 from the top of the stack(not really, it just forgets it existedand rewrites on top)
 ```
 
-Example 6
+## Example 6
 
 ```Assembly
 global _start
