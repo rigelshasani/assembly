@@ -155,3 +155,85 @@ label:
 ### Fun fact:
 
 _Max number of iterations you can do with this code is 7, for the result of 128. If you do 8 iterations, you get 0, because I guess 256 overflows. A way to show that it indeed overflows is to add a `dec ebx` before you return, and it actually returns 255 when you `echo $?`. Cool stuff._ <br/>
+
+Example 5: The Stack
+
+The stack is a FILO data structure, implemented in x86 in a top-down format. It uses ESP(stack pointer) which begins at the higher address of the stack, and with each _push_ or _pop_ operation, decreases or increases by 4 bytes down or up accordingly. Why 4 bytes? Because the values the stack holds are 32 bits,
+Here's what the stack visualised looks like:
+
+```Assembly
+ESP = 28
+;stack address | value
+    [00] 0
+    [04] 0
+    [08] 0
+    [12] 0
+    [16] 0
+    [20] 0
+    [24] 0
+    [28] 0
+
+```
+
+```Assembly
+push 256
+ESP = 24
+;stack address | value
+    [00] 0
+    [04] 0
+    [08] 0
+    [12] 0
+    [16] 0
+    [20] 0
+    [24] 256
+    [28] 0
+```
+
+What does push do under the hood?
+
+```Assembly
+push 256
+```
+
+is the same as
+
+```Assembly
+sub esp, 4
+mov [esp],dword 256 ; dword tells what size of data we want to move
+```
+
+What does pop do under under the hood?
+
+```Assembly
+pop 256
+```
+
+is the same as
+
+```Assembly
+mov eax,dword [esp] ; moves 4 bytes of the value of the address esp to eax
+add esp, 4 ; removes 256 from the top of the stack(not really, it just forgets it existedand rewrites on top)
+```
+
+Example 6
+
+```Assembly
+global _start
+_start:
+    sub esp, 4
+    mov [esp],   byte 'H'
+    mov [esp+1], byte 'e'
+    mov [esp+2], byte 'y'
+    mov [esp+3], byte '!'
+    mov eax, 4   ; sys_write syscall
+    mov ebx, 1   ; stdout file descriptor
+    mov ecx, esp ;pointer to bytes to write
+    mov edx, 4   ; number of bytes to write
+    int 0x80     ; perform syscall 
+```
+
+*For some reason I get this error when running the above code:*
+```bash
+./ex6                         
+Hey![1]    74699 segmentation fault (core dumped)  ./ex6
+```
